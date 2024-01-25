@@ -1,11 +1,11 @@
 function Home() {
-  const imageUrl =
-    "https://media.istockphoto.com/id/1266478952/photo/health-visitor-and-a-senior-woman-during-nursing-home-visit.jpg?s=612x612&w=0&k=20&c=IDERTwpiToh1H_ARPE5zv6snPTlJ39iD0FPQOHxA5CU=";
   return (
-    <div className="bg-[url(https://media.istockphoto.com/id/1266478952/photo/health-visitor-and-a-senior-woman-during-nursing-home-visit.jpg?s=612x612&w=0&k=20&c=IDERTwpiToh1H_ARPE5zv6snPTlJ39iD0FPQOHxA5CU=)] p-5 bg-cover bg-center h-screen">
-      <div className="p-3 text-white font-white">
-        <h1 className="text-6xl">Glome Health</h1>
-        <p className="text-2xl">Safer home dialysis for patients everywhere</p>
+    <div className="bg-[url(../../public/background.jpg)] pt-5 bg-cover bg-center h-screen flex justify-start items-center">
+      <div className="w-[85%] lg:w-[40%] p-[3.7rem] rounded-r-[2.5rem] text-white font-white bg-[#EA6668] opacity-80 h-[auto]">
+        <h1 className="text-[25px] lg:text-[65px]">Glome Health</h1>
+        <p className="text-[18px] lg:text-[28px]">
+          <i>Safer home dialysis for patients everywhere</i>
+        </p>
       </div>
     </div>
   );
