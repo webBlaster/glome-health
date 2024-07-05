@@ -16,20 +16,12 @@
   }
 }
 
-body {
-  background-color: black;
-}
-
 h1 {
   font-family: "Tablet Gothic", sans-serif;
-
-  font-weight: bold;
 }
 
 p {
   font-family: "Tablet Gothic", sans-serif;
-  font-weight: 600; /* Semi-bold */
-  font-style: oblique;
 }
 
 @layer utilities {
