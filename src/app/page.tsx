@@ -51,9 +51,39 @@ function SunIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
 
 function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  let [email, setEmail] = useState("");
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
     document.documentElement.classList.toggle("dark");
+  };
+
+  const subscribe = async () => {
+    // Building the query string directly
+    const queryParams = new URLSearchParams({
+      EMAIL: email,
+      u: "83ab1dd4d6213d960c29718ba",
+      id: "f7544e59af",
+      f_id: "00c3c2e1f0",
+
+      b_83ab1dd4d6213d960c29718ba_f7544e59af: "",
+      subscribe: "Subscribe",
+      _: Date.now().toString(),
+    }).toString();
+
+    const url = `https://gmail.us13.list-manage.com/subscribe/post-json?${queryParams}`;
+
+    try {
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      });
+
+      console.log(response);
+    } catch (error) {
+      console.error("Subscription failed:", error);
+    }
   };
 
   return (
@@ -108,7 +138,11 @@ function Home() {
           <p className=" mb-4 text-left">
             Get news, photos, events, and business updates
           </p>
-          <div
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              subscribe();
+            }}
             className={`flex justify-center rounded-full border-2 p-[2px] ${
               isDarkMode
                 ? "bg-primary text-white border-white"
@@ -116,21 +150,23 @@ function Home() {
             }`}
           >
             <input
-              type="text"
+              type="email"
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Email Address*"
+              required
               className={`rounded-l-full text-[10px] md:text-[16px] px-4 py-2 w-[65%] ${
                 isDarkMode ? "bg-primary text-white" : "bg-white text-primary"
               }`}
             />
             <button
-              onClick={() => toast.success("Thank you for subscribing!")}
+              type="submit"
               className={`rounded-full md:px-8 py-2 text-[10px] md:text-[16px] md:py-4 w-[35%] ${
                 isDarkMode ? "bg-white text-primary" : "bg-primary text-white"
               }`}
             >
               SIGN UP
             </button>
-          </div>
+          </form>
         </div>
       </div>
 
@@ -156,11 +192,20 @@ function Home() {
           <div>
             <h3 className="font-bold text-[16px] mb-2">FOLLOW</h3>
             <p>
-              LinkedIn
+              <a
+                href="https://www.linkedin.com/company/glomehealth/"
+                target="_blank"
+              >
+                LinkedIn
+              </a>
               <br />
-              Twitter
+              <a href="https://x.com/GlomeHealth" target="_blank">
+                Twitter
+              </a>
               <br />
-              Medium
+              <a href="https://medium.com/@glomehealth" target="_blank">
+                Medium
+              </a>
             </p>
           </div>
         </div>
