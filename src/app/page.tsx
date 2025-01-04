@@ -231,7 +231,7 @@ function Home() {
           </div>
         </div>
         <div className="text-center mt-10 w-full">
-          <p>© MMXXIV - Glome Health Inc. - All Rights Reserved.</p>
+          <p>© MMXXV - Glome Health Inc. - All Rights Reserved.</p>
         </div>
       </footer>
     </div>
